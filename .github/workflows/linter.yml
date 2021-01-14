@@ -4,7 +4,8 @@ on: push
 
 jobs:
   check:
-    runs-on: node:14.15.4-alpine3.12
+    runs-on: windows-latest
+    container: node:14.15.4-alpine3.12
     steps:
       - run: npm install
       - run: npx eslint .
