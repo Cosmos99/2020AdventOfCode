@@ -7,7 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     container: node:14.15.4-alpine3.12
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
       - run: npm install
-      - run: npx eslint .
-      - run: echo OK
-  
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          eslint: true
