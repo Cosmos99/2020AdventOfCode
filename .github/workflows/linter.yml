@@ -13,4 +13,6 @@ jobs:
         uses: wearerequired/lint-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          continue_on_error: false
           eslint: true
+          
