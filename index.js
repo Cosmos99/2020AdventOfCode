@@ -9,7 +9,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-app.use('/Days/1', dayRoutes);
+app.use('/days/1', dayRoutes);
 
 
 app.get('/', (req, res) => {

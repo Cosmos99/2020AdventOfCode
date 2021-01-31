@@ -6,6 +6,9 @@ h1 {
     color: #e60000;
 }
 
+h2, h3 {
+    color: white;
+}
 p {
     color: darkorange;
 }
