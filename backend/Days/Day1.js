@@ -7,7 +7,8 @@ const link = 'https://adventofcode.com/2020/day/1';
 /**
  *
  * @param {Map<int, boolean>} numberList Map of numbers
- * @return {String} xy The *(product) of the two numbers that sum to 2020, or that no solution was found
+ * @return {String} xy The *(product) of the two numbers
+ *                 that sum to 2020, or that no solution was found
  */
 function solve(numberList) {
   const keys = numberList.keys();
@@ -54,8 +55,6 @@ router.post('/', (req, res) =>{
 });
 */
 
-
-
 /*
 function getSolution(){
   const readStream = fs.createReadStream('./backend/Resources/day1.txt',
@@ -78,10 +77,15 @@ function getSolution(){
 }
 */
 
-function getSolution(){
+/**
+ *
+ * @return {String} Returns solution for this days problem
+ */
+function getSolution() {
   const mapp = new Map();
   let solution = 'N/A';
-  let lines = fs.readFileSync('./backend/Resources/day1.txt','utf-8').split('\n').filter(Boolean);
+  const lines = fs.readFileSync('./backend/Resources/day1.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
   for (let i = 0; i < lines.length; i++) {
     mapp.set(parseInt(lines[i], 10), true);
   }
@@ -92,5 +96,4 @@ function getSolution(){
 module.exports = {
   description,
   link,
-  getSolution
-};
+  getSolution};
