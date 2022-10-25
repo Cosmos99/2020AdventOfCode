@@ -37,6 +37,29 @@ class PasswordLine {
     }
     return true;
   }
+
+  /**
+   * Function to check if password is valid
+   * @return {Boolean} Returns true if password is valid.
+   */
+  isValid2() {
+    let letterAppearance = 0;
+    if (this.min - 1 < this.password.length) {
+      if (this.password.charAt(this.min-1) == this.letter) {
+        letterAppearance += 1;
+      }
+    }
+    if (this.max - 1 < this.password.length) {
+      if (this.password.charAt(this.max-1) == this.letter) {
+        letterAppearance += 1;
+      }
+    }
+    if (letterAppearance == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 /**
@@ -46,7 +69,7 @@ class PasswordLine {
 function solve(passwordLineList) {
   let solution = 0;
   for (let i = 0; i<passwordLineList.length; i++) {
-    if (passwordLineList[i].isValid()) {
+    if (passwordLineList[i].isValid2()) {
       solution +=1;
     }
   }
