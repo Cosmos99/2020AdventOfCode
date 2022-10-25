@@ -1,16 +1,13 @@
-const express = require('express');
 const fs = require('fs');
 const os = require('os');
-const router = express.Router();
 
-const number = 1;
 const description = 'Lorem ipsum solor sit damet!';
 const link = 'https://adventofcode.com/2020/day/1';
 
 /**
  *
  * @param {Map<int, boolean>} numberList Map of numbers
- * @return {int} xy The * of the two numbers that sum to 2020
+ * @return {String} xy The *(product) of the two numbers that sum to 2020, or that no solution was found
  */
 function solve(numberList) {
   const keys = numberList.keys();
@@ -35,6 +32,7 @@ function solve(numberList) {
   return x*y;
 }
 
+/*
 router.get('/', (req, res) =>{
   res.render('day', {number, description, link});
 });
@@ -54,5 +52,45 @@ router.post('/', (req, res) =>{
     res.status(200).json(solution);
   });
 });
+*/
 
-module.exports = router;
+
+
+/*
+function getSolution(){
+  const readStream = fs.createReadStream('./backend/Resources/day1.txt',
+      'utf-8');
+  const mapp = new Map();
+  console.log('1' + solution);
+  readStream.on('data', (chunk) =>{
+    const lines = chunk.split('\n'); //os.EOL
+    for (let i = 0; i < lines.length; i++) {
+      mapp.set(parseInt(lines[i], 10), true);
+    }
+  }).on('end', () =>{
+    solution = solve(mapp);
+    console.log('2' + solution);
+  });
+  console.log(mapp);
+  console.log('3' + solution);
+  solution = solve(mapp);
+  return solution;
+}
+*/
+
+function getSolution(){
+  const mapp = new Map();
+  let solution = 'N/A';
+  let lines = fs.readFileSync('./backend/Resources/day1.txt','utf-8').split('\n').filter(Boolean);
+  for (let i = 0; i < lines.length; i++) {
+    mapp.set(parseInt(lines[i], 10), true);
+  }
+  solution = solve(mapp);
+  return solution;
+}
+
+module.exports = {
+  description,
+  link,
+  getSolution
+};

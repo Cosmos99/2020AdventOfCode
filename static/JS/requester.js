@@ -8,6 +8,7 @@ function getSolution(dayNumber) {
   fetch(`/days/${dayNumber}`, { method: 'POST'})
   .then(response => response.json())
   .then((resp) => {
+    console.log(resp);
     const header = document.createElement('h2');
     header.innerText = 'Response:'
     const responseElement = document.createElement('h3');
@@ -17,3 +18,11 @@ function getSolution(dayNumber) {
     div.appendChild(responseElement);
   });
 }
+
+/*
+  .then(response => {
+    //console.log(response);
+    response.json();}
+    )
+
+    */
