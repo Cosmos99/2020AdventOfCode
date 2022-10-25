@@ -90,7 +90,7 @@ function solve2(numberList) {
     throw Error('The numbers don`t sum to 2020\n' +
                 'PS: This shouldn`t be happening');
   }
-  return x*y;
+  return -1;
 }
 
 /**
