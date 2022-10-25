@@ -33,50 +33,6 @@ function solve(numberList) {
   return x*y;
 }
 
-/*
-router.get('/', (req, res) =>{
-  res.render('day', {number, description, link});
-});
-
-
-router.post('/', (req, res) =>{
-  const readStream = fs.createReadStream('./backend/Resources/day1.txt',
-      'utf-8');
-  const mapp = new Map();
-  readStream.on('data', (chunk) =>{
-    const lines = chunk.split(os.EOL);
-    for (let i = 0; i < lines.length; i++) {
-      mapp.set(parseInt(lines[i], 10), true);
-    }
-  }).on('end', () =>{
-    const solution = solve(mapp);
-    res.status(200).json(solution);
-  });
-});
-*/
-
-/*
-function getSolution(){
-  const readStream = fs.createReadStream('./backend/Resources/day1.txt',
-      'utf-8');
-  const mapp = new Map();
-  console.log('1' + solution);
-  readStream.on('data', (chunk) =>{
-    const lines = chunk.split('\n'); //os.EOL
-    for (let i = 0; i < lines.length; i++) {
-      mapp.set(parseInt(lines[i], 10), true);
-    }
-  }).on('end', () =>{
-    solution = solve(mapp);
-    console.log('2' + solution);
-  });
-  console.log(mapp);
-  console.log('3' + solution);
-  solution = solve(mapp);
-  return solution;
-}
-*/
-
 /**
  *
  * @return {String} Returns solution for this days problem
