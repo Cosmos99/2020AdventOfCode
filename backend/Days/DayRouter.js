@@ -5,9 +5,12 @@ const router = express.Router();
 // Day Requires
 const day1 = require('./Day1');
 const day2 = require('./Day2');
+const day3 = require('./Day3');
+
 const days = [];
 days.push(day1);
 days.push(day2);
+days.push(day3);
 
 router.get('/', (req, res) =>{
   res.status(404).render('NotFound');
@@ -17,7 +20,7 @@ router.get('/:dayNumber', (req, res) =>{
   dayNumber = req.params['dayNumber'];
   description = days[dayNumber-1].description;
   link = days[dayNumber-1].link;
-  if (dayNumber>0 && dayNumber <=2) {
+  if (dayNumber>0 && dayNumber <=3) {
     res.render('day', {dayNumber, description, link});
   } else {
     res.status(404).render('NotFound');
