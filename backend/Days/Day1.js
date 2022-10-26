@@ -105,6 +105,22 @@ function getSolution() {
   for (let i = 0; i < lines.length; i++) {
     mapp.set(parseInt(lines[i], 10), true);
   }
+  solution = solve(mapp);
+  return solution;
+}
+
+/**
+ *
+ * @return {String} Returns solution for this days second part problem
+ */
+ function getSolution2() {
+  const mapp = new Map();
+  let solution = 'N/A';
+  const lines = fs.readFileSync('./backend/Resources/day1.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
+  for (let i = 0; i < lines.length; i++) {
+    mapp.set(parseInt(lines[i], 10), true);
+  }
   solution = solve2(mapp);
   return solution;
 }
@@ -112,4 +128,5 @@ function getSolution() {
 module.exports = {
   description,
   link,
-  getSolution};
+  getSolution,
+  getSolution2};

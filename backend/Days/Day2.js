@@ -66,7 +66,22 @@ class PasswordLine {
  * @param {Array} passwordLineList - Map of numbers
  * @return {int} solution - The number of valid passwords
  */
-function solve(passwordLineList) {
+ function solve(passwordLineList) {
+  let solution = 0;
+  for (let i = 0; i<passwordLineList.length; i++) {
+    if (passwordLineList[i].isValid()) {
+      solution +=1;
+    }
+  }
+  return solution;
+}
+
+
+/**
+ * @param {Array} passwordLineList - Map of numbers
+ * @return {int} solution - The number of valid passwords
+ */
+function solve2(passwordLineList) {
   let solution = 0;
   for (let i = 0; i<passwordLineList.length; i++) {
     if (passwordLineList[i].isValid2()) {
@@ -99,7 +114,30 @@ function getSolution() {
   return solution;
 }
 
+/**
+ *
+ * @return {String} Returns solution for this days second part problem
+ */
+ function getSolution2() {
+  const passwordLineList = [];
+  let solution = 'N/A';
+  const lines = fs.readFileSync('./backend/Resources/day2.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
+  for (let i = 0; i < lines.length; i++) {
+    const parts = lines[i].split(' ');
+    const numbers = parts[0].split('-');
+    const min = numbers[0];
+    const max = numbers[1];
+    const letter = parts[1][0];
+    const password = parts[2];
+    passwordLineList.push(new PasswordLine(min, max, letter, password));
+  }
+  solution = solve2(passwordLineList);
+  return solution;
+}
+
 module.exports = {
   description,
   link,
-  getSolution};
+  getSolution,
+  getSolution2};

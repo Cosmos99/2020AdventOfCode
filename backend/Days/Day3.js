@@ -75,6 +75,19 @@ function getSolution() {
   const lines = fs.readFileSync('./backend/Resources/day3.txt', 'utf-8')
       .split(os.EOL).filter(Boolean);
   const map = lines;
+  solution = solve(map);
+  return solution;
+}
+
+/**
+ *
+ * @return {String} Returns solution for this days problem
+ */
+function getSolution2() {
+  let solution = 'N/A';
+  const lines = fs.readFileSync('./backend/Resources/day3.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
+  const map = lines;
   solution = solve2(map);
   return solution;
 }
@@ -82,4 +95,5 @@ function getSolution() {
 module.exports = {
   description,
   link,
-  getSolution};
+  getSolution,
+  getSolution2};

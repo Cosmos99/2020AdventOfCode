@@ -18,13 +18,20 @@ router.get('/', (req, res) =>{
 
 router.get('/:dayNumber', (req, res) =>{
   dayNumber = req.params['dayNumber'];
+  if (dayNumber<=0 || dayNumber>3) {
+    res.status(404).render('NotFound');
+    return;
+  }
   description = days[dayNumber-1].description;
   link = days[dayNumber-1].link;
-  if (dayNumber>0 && dayNumber <=3) {
-    res.render('day', {dayNumber, description, link});
-  } else {
-    res.status(404).render('NotFound');
-  }
+  res.render('day', {dayNumber, description, link});
+});
+
+router.post('/B_:dayNumber', (req, res) =>{
+  dayNumber = req.params['dayNumber'];
+  const solution = days[dayNumber-1].getSolution2();
+  console.log('SOLUTION 2: ' + solution);
+  res.json(solution);
 });
 
 router.post('/:dayNumber', (req, res) =>{
