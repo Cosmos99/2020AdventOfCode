@@ -33,6 +33,10 @@
   * @return {String} Returns solution for this days problem
   */
  function getSolution() {
+
+    const lines = fs.readFileSync('./backend/Resources/dayX.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
+
  }
  
  /**
@@ -40,6 +44,9 @@
   * @return {String} Returns solution for this days second part problem
   */
   function getSolution2() {
+
+    const lines = fs.readFileSync('./backend/Resources/dayX.txt', 'utf-8')
+      .split(os.EOL).filter(Boolean);
   }
  
  module.exports = {
