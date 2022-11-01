@@ -11,7 +11,7 @@ const link = 'https://adventofcode.com/2020/day/6';
 
 /**
   *
-  * @param {Array.Array.<String>} boardingAnswers - The 'Yes' answers from each group
+  * @param {Array.Array.<String>} boardingAnswers - The answers from each group
   * @return {String} The sum of 'Yes' asnwers from each group
   */
 function solve(boardingAnswers) {
@@ -32,11 +32,32 @@ function solve(boardingAnswers) {
 /**
   *  This function solves the second part of the problem from Day 1
   *
-  * @param {...}
+  * @param {Array.Array.<String>} boardingAnswers - The answers from each group
   * @return {String}
   */
-function solve2() {
-
+function solve2(boardingAnswers) {
+  let solution = 0;
+  for (let i=0; i<boardingAnswers.length; i++) {
+    const answerDictionary = {};
+    for (let j=0; j<boardingAnswers[i].length; j++) {
+      for (let k=0; k<boardingAnswers[i][j].length; k++) {
+        const character = boardingAnswers[i][j][k];
+        if (character in answerDictionary) {
+          answerDictionary[character] += 1;
+        } else {
+          answerDictionary[character] = 1;
+        }
+      }
+    }
+    //console.log(Object.keys(answerDictionary));
+    for (const answer of Object.keys(answerDictionary)) {
+     // console.log(answer);
+      if (answerDictionary[answer] == boardingAnswers[i].length) {
+        solution += 1;
+      }
+    }
+  }
+  return solution.toString();
 }
 
 /**
@@ -59,8 +80,14 @@ function getSolution() {
   * @return {String} Returns solution for this days second part problem
   */
 function getSolution2() {
-  const lines = fs.readFileSync('./backend/Resources/dayX.txt', 'utf-8')
-      .split(os.EOL).filter(Boolean);
+  const allGroups = fs.readFileSync('./backend/Resources/day6.txt', 'utf-8')
+      .split(os.EOL+os.EOL).filter(Boolean);
+  const boardingAnswers = [];
+  for (let i=0; i<allGroups.length; i++) {
+    const group = allGroups[i].split(os.EOL);
+    boardingAnswers.push(group);
+  }
+  return solve2(boardingAnswers);
 }
 
 module.exports = {
