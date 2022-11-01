@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+//TODO: Make part 2 of this problem
+
 /**
  * This is a file template for the day problems.
  * Both for part 1 and part 2 of the problem.
