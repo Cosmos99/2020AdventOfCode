@@ -66,7 +66,7 @@ class PasswordLine {
  * @param {Array} passwordLineList - Map of numbers
  * @return {int} solution - The number of valid passwords
  */
- function solve(passwordLineList) {
+function solve(passwordLineList) {
   let solution = 0;
   for (let i = 0; i<passwordLineList.length; i++) {
     if (passwordLineList[i].isValid()) {
@@ -118,7 +118,7 @@ function getSolution() {
  *
  * @return {String} Returns solution for this days second part problem
  */
- function getSolution2() {
+function getSolution2() {
   const passwordLineList = [];
   let solution = 'N/A';
   const lines = fs.readFileSync('./backend/Resources/day2.txt', 'utf-8')

@@ -49,9 +49,9 @@ function solve2(boardingAnswers) {
         }
       }
     }
-    //console.log(Object.keys(answerDictionary));
+    // console.log(Object.keys(answerDictionary));
     for (const answer of Object.keys(answerDictionary)) {
-     // console.log(answer);
+      // console.log(answer);
       if (answerDictionary[answer] == boardingAnswers[i].length) {
         solution += 1;
       }

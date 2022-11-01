@@ -113,7 +113,7 @@ function getSolution() {
  *
  * @return {String} Returns solution for this days second part problem
  */
- function getSolution2() {
+function getSolution2() {
   const mapp = new Map();
   let solution = 'N/A';
   const lines = fs.readFileSync('./backend/Resources/day1.txt', 'utf-8')
