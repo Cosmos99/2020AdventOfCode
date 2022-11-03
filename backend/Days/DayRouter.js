@@ -16,6 +16,7 @@ days.push(day3);
 days.push(day4);
 days.push(day5);
 days.push(require('./Day6'));
+days.push(require('./Day7'));
 
 router.get('/', (req, res) =>{
   res.status(404).render('NotFound');
@@ -23,7 +24,7 @@ router.get('/', (req, res) =>{
 
 router.get('/:dayNumber', (req, res) =>{
   dayNumber = req.params['dayNumber'];
-  if (dayNumber<=0 || dayNumber>6) {
+  if (dayNumber<=0 || dayNumber>7) {
     res.status(404).render('NotFound');
     return;
   }
