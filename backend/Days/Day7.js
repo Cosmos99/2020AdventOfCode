@@ -65,10 +65,6 @@ class ColoredBag {
   howManyContaining() {
     let containing = 0;
     for (let i=0; i<this.contains.length; i++) {
-      if(this.name === 'dark yellow'){
-      console.log('How many of this: ' +this.containsNumber[i]);
-      console.log('How many does that contain:'+this.contains[i].howManyContaining());
-    }
       containing = +containing + +this.containsNumber[i] +
         (+this.containsNumber[i] * +this.contains[i].howManyContaining());
     }
@@ -117,7 +113,6 @@ function constructBags(rules) {
     }
 
     for (let k=4; k<words.length; k+=4) {
-      // let numberOfBags = words[k];
       let containingBag = new ColoredBag(words[k+1] + ' ' + words[k+2]);
       index = containsBag(coloredBags, containingBag);
       if (index >=0 ) {
